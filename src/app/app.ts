@@ -13,6 +13,10 @@ export class App {
 
   toggleDarkMode() {
     const element = document.querySelector('html');
-    element!.classList.toggle('dark');
+    if (element!.getAttribute('data-theme')) {
+      element?.removeAttribute('data-theme');
+      return;
+    }
+    element?.setAttribute('data-theme', 'dark');
   }
 }
