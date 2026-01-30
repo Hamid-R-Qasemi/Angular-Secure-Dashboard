@@ -1,4 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+$bg-dark: #101922;
+$bg-light: #f9fafc;
+
 html {
   transition: 300ms;
+
+  &.dark {
+    background-color: $bg-dark;
+  }
 }
