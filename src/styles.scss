@@ -9,14 +9,20 @@
 
 :root {
   --bg-app: #{light.$bg-app};
-  --bg-surfece: #{light.$bg-surface};
+  --bg-surface: #{light.$bg-surface};
   --accent-primary: #{light.$accent-primary};
+  --p-primary-color: #{light.$accent-primary};
+  --text-muted: #aab5c9;
 }
 
 [data-theme='dark'] {
   --bg-app: #{dark.$bg-app};
-  --bg-app: #{dark.$bg-surface};
+  --bg-surface: #{dark.$bg-surface};
   --accent-primary: #{dark.$accent-primary};
+  --p-primary-color: #{dark.$accent-primary};
+  --p-primary-300: #{dark.$primary-300};
+  --p-primary-200: #{dark.$primary-200};
+  --p-primary-contrast-color: #{dark.$accent-primary-contrast};
 }
 
 // html {
@@ -58,4 +64,12 @@ html {
   &.dark {
     background-color: var(--bg-app);
   }
+}
+
+.p-button {
+  width: 100%;
+}
+
+.p-inputtext {
+  width: 100%;
 }

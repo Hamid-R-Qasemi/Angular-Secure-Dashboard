@@ -1,0 +1,60 @@
+<div class="flex flex-col items-center justify-center h-screen">
+  <div class="flex flex-col items-center login-card">
+    <app-icon iconName="fingerprint" class="w-14 text-(--accent-primary)" />
+    <h1 class="title">Secure Dashboard Portal</h1>
+    <p class="subtitle">Sign in to manage your services</p>
+
+    <form class="w-full" [formGroup]="form" (ngSubmit)="login()">
+      @if (form.controls.username.touched && form.controls.username.invalid) {
+        <small class="text-red-500">
+          @if (form.controls.username.errors?.['required']) {
+            Email required
+          }
+          @if (form.controls.username.errors?.['email']) {
+            Invalid email
+          }
+        </small>
+      }
+
+      @if (error()) {
+        <p-message severity="error">
+          {{ error() }}
+        </p-message>
+      }
+
+      <div class="input-field">
+        <label for="email-input">Username or Email</label>
+        <input
+          pInputText
+          type="email"
+          class="w-full"
+          id="email-input"
+          placeholder="john@doe.com"
+          autocomplete="username"
+          formControlName="username"
+        />
+      </div>
+
+      <div class="input-field">
+        <label for="password-input">Password</label>
+        <p-password
+          class="w-full"
+          inputId="password-input"
+          placeholder="••••••••"
+          [feedback]="false"
+          [toggleMask]="true"
+          autocomplete="password"
+          formControlName="password"
+        />
+      </div>
+
+      <p-button
+        label="Sign In"
+        class="w-full mt-10"
+        [loading]="loading()"
+        [disabled]="loading()"
+        type="submit"
+      ></p-button>
+    </form>
+  </div>
+</div>
