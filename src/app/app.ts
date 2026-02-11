@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { BidiModule } from '@angular/cdk/bidi';
-import { LoaderComponent } from './shared/components/loading/loading';
+import { LoaderComponent } from './shared/components/loader/loader';
 
 @Component({
   selector: 'app-root',
