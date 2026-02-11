@@ -37,7 +37,6 @@ export class LoginPage implements OnInit {
   ngOnInit(): void {}
 
   async login() {
-    debugger;
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
@@ -49,7 +48,6 @@ export class LoginPage implements OnInit {
     try {
       await this.auth.login(this.form.getRawValue());
     } catch (e: any) {
-      debugger;
       this.error.set(e.message);
     } finally {
       this.loading.set(false);

@@ -7,11 +7,13 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './core/auth/auth.interceptor';
+import { Toast } from './core/ui/toast';
+import { loadingInterceptor } from './core/http/loader.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient(withInterceptors([authInterceptor])),
+    provideHttpClient(withInterceptors([authInterceptor, loadingInterceptor])),
     provideRouter(routes),
     provideAnimationsAsync(),
     providePrimeNG({
@@ -26,5 +28,6 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    Toast,
   ],
 };
